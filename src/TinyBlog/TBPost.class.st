@@ -23,6 +23,11 @@ Class {
 	#category : #TinyBlog
 }
 
+{ #category : #action }
+TBPost >> beVisible [
+	self visible: true
+]
+
 { #category : #accessing }
 TBPost >> category [
 
@@ -45,6 +50,11 @@ TBPost >> date [
 TBPost >> date: anObject [
 
 	date := anObject
+]
+
+{ #category : #action }
+TBPost >> notVisible [
+	self visible: false
 ]
 
 { #category : #accessing }
