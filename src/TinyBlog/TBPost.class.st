@@ -23,6 +23,11 @@ Class {
 	#category : #TinyBlog
 }
 
+{ #category : #'properties-setting' }
+TBPost class >> unclassifiedTag [
+	^ 'Unclassified'
+]
+
 { #category : #action }
 TBPost >> beVisible [
 	self visible: true
