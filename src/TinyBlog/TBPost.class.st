@@ -23,6 +23,21 @@ Class {
 	#category : #TinyBlog
 }
 
+{ #category : #'instance creation' }
+TBPost class >> title: aTitle text: aText [
+	^ self new
+		title: aTitle;
+		text: aText;
+		yourself
+]
+
+{ #category : #'instance creation' }
+TBPost class >> title: aTitle text: aText category: aCategory [
+	^ (self title: aTitle text: aText)
+			category: aCategory;
+			yourself
+]
+
 { #category : #'properties-setting' }
 TBPost class >> unclassifiedTag [
 	^ 'Unclassified'
@@ -63,6 +78,16 @@ TBPost >> initialize [
 	self category: self class unclassifiedTag.
 	self date: Date today.
 	self notVisible
+]
+
+{ #category : #testing }
+TBPost >> isUnclassified [
+	^ self category = self class unclassifiedTag.
+]
+
+{ #category : #testing }
+TBPost >> isVisible [
+	^ self visible.
 ]
 
 { #category : #action }
