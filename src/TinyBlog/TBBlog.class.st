@@ -64,6 +64,11 @@ TBBlog >> allBlogPosts [
 	^ posts.
 ]
 
+{ #category : #accessing }
+TBBlog >> allBlogPostsFromCategory: aCategory [
+	^ posts select: [ :p | p category = aCategory].
+]
+
 { #category : #private }
 TBBlog >> allCategories [
 	^ (self allBlogPosts collect: [ :p | p category ]) asSet
