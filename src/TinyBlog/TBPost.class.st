@@ -52,6 +52,14 @@ TBPost >> date: anObject [
 	date := anObject
 ]
 
+{ #category : #initialization }
+TBPost >> initialize [
+	super initialize.
+	self category: self class unclassifiedTag.
+	self date: Date today.
+	self notVisible
+]
+
 { #category : #action }
 TBPost >> notVisible [
 	self visible: false
