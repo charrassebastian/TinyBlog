@@ -4,6 +4,9 @@ Screen Component abstract class for the Tiny Blog
 Class {
 	#name : #TBScreenComponent,
 	#superclass : #WAComponent,
+	#instVars : [
+		'header'
+	],
 	#category : #'TinyBlog-Components'
 }
 
@@ -13,7 +16,23 @@ TBScreenComponent >> blog [
 	^ TBBlog current
 ]
 
+{ #category : #hooks }
+TBScreenComponent >> children [
+	^ { header }
+]
+
+{ #category : #initialization }
+TBScreenComponent >> createHeaderComponent [
+	^ TBHeaderComponent new
+]
+
+{ #category : #initialization }
+TBScreenComponent >> initialize [ 
+	super initialize.
+	header := self createHeaderComponent
+]
+
 { #category : #rendering }
 TBScreenComponent >> renderContentOn: html [
-	html text: 'Hello from TBScreenComponent'
+	html render: header
 ]
